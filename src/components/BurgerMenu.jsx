@@ -15,10 +15,10 @@ function BurgerMenu({
             <i onClick={onClose} className="fa-solid fa-xmark"></i>
         </header>
         <div className="burger-content">
-            <Link onClick={onClose} to="/register-pro" className='burger-pro_link'><h4>Vous êtes un professionnel ?</h4></Link>
+            <Link onClick={onClose} to="/inscription-pro" className='burger-pro_link'><h4>Vous êtes un professionnel ?</h4></Link>
             <hr />
-            <Link onClick={onClose} to="/login" className='burger-link'><h4>S'inscrire</h4></Link>
-            <Link onClick={onClose} to="/register" className='burger-link'><h4>Se connecter</h4></Link>
+            <Link onClick={onClose} to="/inscription-client" className='burger-link'><h4>S'inscrire</h4></Link>
+            <Link onClick={onClose} to="/login" className='burger-link'><h4>Se connecter</h4></Link>
         </div>
       </div>
     );

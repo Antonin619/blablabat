@@ -1,5 +1,4 @@
 .header {
-    padding: 0rem 1rem;
     background-color: var(--bbb-secondary);
     border-bottom: 10px solid var(--bbb-primary);
     box-shadow: 2px 1px 6px 5px rgba(0,0,0,0.18);
@@ -8,17 +7,19 @@
     text-align: center;   
     align-items: center;
     height: 10vh;
-    position: relative;
+    position: fixed;
+    width: 100%;
 
     .header-leftside {
         display: flex;
         gap: 0.5rem;
         align-items: center;
+        margin-left: 1rem;
     }
 
     .header-rightside {
         font-size: var(--bbb-font-l);
-        padding-right: 0.5rem;
+        margin-right: 1.5rem;
     }
 }
 

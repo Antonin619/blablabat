@@ -17,10 +17,10 @@ function Footer() {
               <h4>A propos</h4>
               <Link to={'/'}><p>Qui sommes-nous ?</p></Link>
               <Link to={'/'}><p>Comment ça marche ?</p></Link>
-              <Link to={'/'}><p>CGV et Mentions légales</p></Link>
+              <Link to={'cgv-mentions-legales'}><p>CGV et Mentions légales</p></Link>
               <h4>Nous contacter</h4>
-              <p>06.55.60.79.90</p>
-              <button className='contact-button'>Nous contacter en ligne</button>
+              <p className='footer-phone-number'>06.55.60.79.90</p>
+              <Link to={'/contact'}><button className='contact-button'>Nous contacter en ligne</button></Link>
             </div>
       </footer>
     );

@@ -1,6 +1,4 @@
 .footer {
-    background-color: var(--bbb-secondary-darker);
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,7 +19,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: start;
-        padding: 1rem;
+        padding: 0rem 2rem;
+        padding-bottom: 2rem;
 
         h4 {
             font-size: var(--bbb-font-l);
@@ -29,8 +28,13 @@
         }
         
         a {
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            padding-bottom: 0.5rem;
             p {
                 margin: 0;
+                
             }
         }
 
@@ -39,9 +43,14 @@
             border-radius: 0.5rem;
             color: var(--bbb-secondary);
             font-family: var(--bbb-text);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.5rem;
             font-weight: 600;
+            border: none;
             font-size: var(--bbb-font-med);
+        }
+        
+        .footer-phone-number {
+            font-weight: 600;
         }
     }
 }
