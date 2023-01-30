@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../style/login.scss'
 
 
 const LoginForm = props => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     const {
         disabled,

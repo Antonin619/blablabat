@@ -26,8 +26,8 @@ function Header() {
         </div>
         
         <div className="header-rightside">
-          <i className={isBurgerMenuToggled ? "hidden" : "fa-solid fa-bars"} onClick={toggleBurger}></i>
-          <i className={isBurgerMenuToggled ? "fa-regular fa-user" : "hidden"}></i>
+          <i className={isLoggedIn ? "hidden" : "fa-solid fa-bars"} onClick={toggleBurger}></i>
+          <i className={isLoggedIn ? "fa-regular fa-user" : "hidden"}></i>
         </div>
         
         <BurgerMenu isEnabled={isBurgerMenuToggled} onClose={() => setIsBurgerMenuToggled(false)}/>

@@ -4,7 +4,6 @@ import illu1 from '../assets/images/illu-1.jpg'
 import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
 
 function LandingPage() {
