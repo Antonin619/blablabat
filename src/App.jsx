@@ -9,12 +9,14 @@ function App() {
   return (
     <div className='App'>
     <Header/>
+    <div className="app-content">
     <Routes>
       
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/panel" element={<Panel/>}/>
       
     </Routes>
+    </div>
     <Footer/>
     </div>
   );
