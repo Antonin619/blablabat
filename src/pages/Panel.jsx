@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import '../App.scss';
+import '../style/panel.scss'
 
 function Panel() {
 
