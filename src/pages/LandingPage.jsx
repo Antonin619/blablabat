@@ -3,8 +3,14 @@ import '../style/landing_page.scss'
 import illu1 from '../assets/images/illu-1.jpg'
 import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
+import { useEffect } from 'react';
 
 function LandingPage() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="landing-page">
       <header className="landing-page-header">
@@ -12,7 +18,7 @@ function LandingPage() {
           <h1>Faites de vos projets une réalité...</h1>
           <div className="landing-page-input">
             <div className="icon-container">
-            <i class="fa-solid fa-hammer"></i>
+            <i className="fa-solid fa-hammer"></i>
             </div>
           
             <select className='selector' name="" id="">

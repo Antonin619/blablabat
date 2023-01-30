@@ -14,6 +14,10 @@ function Header() {
     setIsBurgerMenuToggled(true)
   }
 
+  function unToggleBurger() {
+    setIsBurgerMenuToggled(false)
+  }
+
     return (
       <header className="header">
         <div className="header-leftside">
@@ -27,7 +31,7 @@ function Header() {
         </div>
         
         <BurgerMenu isEnabled={isBurgerMenuToggled} onClose={() => setIsBurgerMenuToggled(false)}/>
-        <div className={isBurgerMenuToggled ? "burger-blur" : "hidden"}>
+        <div className={isBurgerMenuToggled ? "burger-blur" : "hidden"} onClick={unToggleBurger}>
         
         </div>
       </header>

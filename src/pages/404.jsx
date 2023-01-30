@@ -2,8 +2,12 @@ import '../App.scss';
 import '../style/404.scss'
 import logo from '../assets/images/logo.svg'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function NotFound() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
   return (
     <div className="not-found">
         <div className="top-content"><h3>404 : Not Found</h3></div>

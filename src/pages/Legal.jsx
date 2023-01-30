@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import '../App.scss';
 import '../style/legal.scss'
 
 function Legal() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="legal">
         <h3>CGV & Mentions Légales</h3>
