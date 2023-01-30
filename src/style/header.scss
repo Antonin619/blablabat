@@ -8,14 +8,31 @@
     text-align: center;   
     align-items: center;
     height: 10vh;
+    position: relative;
 
     .header-leftside {
         display: flex;
         gap: 0.5rem;
+        align-items: center;
     }
 
     .header-rightside {
         font-size: var(--bbb-font-l);
         padding-right: 0.5rem;
     }
+}
+
+.hidden {
+    display: none;
+}
+
+.burger-blur {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top:0;
+    left:0;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+    filter: brightness(50%);
 }

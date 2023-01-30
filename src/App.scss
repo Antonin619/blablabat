@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -7,34 +8,35 @@
   --bbb-secondary: white;
   --bbb-secondary-darker: rgb(243, 243, 243);
   --bbb-black: black;
-  --bbb-title: 'Anton', sans-serif;
+  --bbb-title: 'Oswald', sans-serif;
   --bbb-text:'Montserrat', sans-serif;
   --bbb-font-xs: 12px;
   --bbb-font-s: 14px;
-  --bbb-font-med: 16px;
+  --bbb-font-med: 18px;
   --bbb-font-l: 28px;
   --bbb-font-xl: 38px;
   --bbb-font-2xl: 48px;
 }
 
-h1,h2,h3 {
-  font-family: var(--bbb-text);
-}
 
 h1 {
   font-size: var(--bbb-font-2xl);
+  font-family: var(--bbb-text);
 }
 
 h2 {
   font-size: var(--bbb-font-xl);
+  font-family: var(--bbb-text);
 }
 
 h3 {
   font-size: var(--bbb-font-l);
+  font-family: var(--bbb-title);
 }
 
 h4 {
   font-size: var(--bbb-font-med);
+  font-family: var(--bbb-text);
 }
 
 .App {
