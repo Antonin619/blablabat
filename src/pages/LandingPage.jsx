@@ -16,9 +16,9 @@ function LandingPage() {
       <header className="landing-page-header">
     
           <h1>Faites de vos projets une réalité...</h1>
-          <div className="landing-page-input">
-            <div className="icon-container">
-            <i className="fa-solid fa-hammer"></i>
+            <div className="landing-page-input">
+              <div className="icon-container">
+              <i className="fa-solid fa-hammer"></i>
             </div>
           
             <select className='selector' name="" id="">

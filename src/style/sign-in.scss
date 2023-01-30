@@ -11,10 +11,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px ;
+            gap: 5px ;
 
             label {
                 align-self: start;
+                margin-top: 0.8rem;
             }
             
             h3 {
@@ -30,11 +31,15 @@
                 border-radius: 2rem;
                 width: 72vw;
                 box-shadow: 0px 5px 6px 0px rgba(85, 85, 85, 0.10);
+                &:focus {
+                    outline: none !important;
+                    border:2px solid black;
+                }
             }
     
             .submit-button {
                 border-radius: 2rem;
-                margin: 1rem 0rem;
+                margin: 1.5rem 0rem;
                 padding: 0.8rem 1rem;
                 color: black;
                 text-align: center;
@@ -56,6 +61,3 @@
     
 }
 
-.focus {
-    border: 2px solid black
-}
