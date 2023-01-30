@@ -3,8 +3,31 @@ import '../style/landing_page.scss'
 import illu1 from '../assets/images/illu-1.jpg'
 import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
+import { useState } from 'react';
 
 function LandingPage() {
+  const [show, setShow] = useState(false);
+  const [result, setResult] = useState('Chargement');
+
+  const search = () => {
+    fetch('/items/craftsmen', {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: {
+          Accept: 'application/json',
+      },
+
+  })
+      .then(response => response.json())
+      .then(data => harvest(data));
+    }
+
+    const harvest = (data) => {
+      console.log(data.data);
+      setResult(data.data);
+      setShow(true);
+    }
+
   return (
     <div className="landing-page">
       <header className="landing-page-header">
@@ -34,9 +57,20 @@ function LandingPage() {
             </select>
           </div>
           <div className="landing-page-research">
-            <p>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
+            <p onClick={search}>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
           </div>
       </header>
+
+      {
+        result != 'Chargement' && show == true && (
+          <ResultComponent results={result} />
+        )
+}
+        
+
+
+
+
 
       <img src={illu1} alt="test" />
 
