@@ -48,10 +48,4 @@ p {
   background-color: rgb(255, 255, 255);
   position: relative;
   min-height: 100vh;
-
-  .app-content {
-    scroll-behavior: smooth;
-    height: 82vh;
-    overflow: auto;
-  }
 }
