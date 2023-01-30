@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 :root {
-  --bbb-primary: rgb(255, 109, 24);
+  --bbb-primary: #F27438;
   --bbb-secondary: white;
+  --bbb-black: black;
+  --bbb-title: 'Anton', sans-serif;
+  --bbb-text:'';
+  --bbb-font-xs: 12px;
+  --bbb-font-s: 14px;
+  --bbb-font-med: 16px;
+  --bbb-font-l: 24px;
+  --bbb-font-xl: 32px;
+  --bbb-font-2xl: 48px;
+}
+
+h1,h2,h3 {
+  font-family: var(--bbb-title);
 }
 
 .App {
   background-color: rgb(255, 255, 255);
-
+  position: relative;
+  min-height: 100vh;
 }

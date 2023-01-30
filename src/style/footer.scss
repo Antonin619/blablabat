@@ -1,5 +1,19 @@
 .footer {
-    padding: 1rem;
-    background-color: var(--bbb-secondary);
+    background-color: var(--bbb-primary);
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    min-height: 5vh;
+
+    .footer-content {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem;
+        
+        .link {
+            color: var(--bbb-black);
+        }
+    }
 }
