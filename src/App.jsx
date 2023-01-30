@@ -4,6 +4,7 @@ import Panel from './pages/Panel';
 import './App.scss'
 import Header from './components/Header';
 import Footer from './components/Footer';
+import LoginForm from './components/LoginForm';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/panel" element={<Panel/>}/>
-      
+      <Route path="/login" element={<LoginForm/>}/>
     </Routes>
     <Footer/>
     </div>
