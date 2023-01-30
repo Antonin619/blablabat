@@ -1,12 +1,12 @@
-import '../style/header.scss'
+import '../style/burger_menu.scss'
 import logo from '../assets/images/logo.svg'
 
-function Header() {
+function BurgerMenu() {
     return (
       <header className="header">
         <div className="header-leftside">
           <img src={logo} alt="logo blablabat" />
-          <h3>BLABLABAT</h3>
+          <h1>BLABLABAT</h1>
         </div>
         
         <div className="header-rightside">
@@ -17,4 +17,4 @@ function Header() {
     );
   }
   
-  export default Header;
+  export default BurgerMenu;
