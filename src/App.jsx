@@ -9,6 +9,7 @@ import Legal from './pages/Legal';
 import InscriptionClient from './pages/InscriptionClient';
 import InscriptionPro from './pages/InscriptionPro';
 
+import LoginForm from './components/LoginForm';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <Route path="/inscription-client" element={<InscriptionClient/>}/>
       <Route path="/inscription-pro" element={<InscriptionPro/>}/>
 
+      <Route path="/login" element={<LoginForm/>}/>
     </Routes>
     </div>
     <Footer/>
