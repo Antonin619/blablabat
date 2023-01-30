@@ -1,5 +1,4 @@
 import '../App.scss';
-import '../style/main.scss'
 
 function RegisterPage() {
   return (
