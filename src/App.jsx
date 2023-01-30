@@ -5,6 +5,7 @@ import './App.scss'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import RegisterPage from './pages/RegisterPage';
+import InformationsPage from './pages/InformationsPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/panel" element={<Panel/>}/>
       <Route path="/register" element={<RegisterPage/>}/>
       <Route path="/panel" element={<Panel/>}/>
+      <Route path="/informations" element={<InformationsPage/>}/>
       
       
     </Routes>
