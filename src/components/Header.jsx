@@ -8,8 +8,14 @@ function Header() {
 
   const [isBurgerMenuToggled, setIsBurgerMenuToggled] = useState(false);
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   function toggleBurger() {
     setIsBurgerMenuToggled(true)
+  }
+
+  function unToggleBurger() {
+    setIsBurgerMenuToggled(false)
   }
 
     return (
@@ -20,11 +26,12 @@ function Header() {
         </div>
         
         <div className="header-rightside">
-          <i onClick={toggleBurger} className="fa-solid fa-bars"></i>
+          <i className={isBurgerMenuToggled ? "hidden" : "fa-solid fa-bars"} onClick={toggleBurger}></i>
+          <i className={isBurgerMenuToggled ? "fa-regular fa-user" : "hidden"}></i>
         </div>
         
         <BurgerMenu isEnabled={isBurgerMenuToggled} onClose={() => setIsBurgerMenuToggled(false)}/>
-        <div className={isBurgerMenuToggled ? "burger-blur" : "hidden"}>
+        <div className={isBurgerMenuToggled ? "burger-blur" : "hidden"} onClick={unToggleBurger}>
         
         </div>
       </header>

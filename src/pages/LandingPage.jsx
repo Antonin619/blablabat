@@ -5,38 +5,31 @@ import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
 import { useState } from 'react';
 import ResultComponent from '../components/ResultComponent';
+import { CraftmensService } from '../services/craftmens.service';
 
 function LandingPage() {
   const [show, setShow] = useState(false);
-  const [result, setResult] = useState('Chargement');
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([]);
 
-  const search = () => {
-    fetch('/items/craftsmen', {
-      credentials: 'same-origin',
-      method: 'GET',
-      headers: {
-          Accept: 'application/json',
-      },
+  console.log('results :>> ', results);
 
-  })
-      .then(response => response.json())
-      .then(data => harvest(data));
-    }
-
-    const harvest = (data) => {
-      console.log(data.data);
-      setResult(data.data);
-      setShow(true);
-    }
+  const handleCLick = () => {
+    setLoading(true);
+    CraftmensService.fetchCraftsmen().then((data) => {
+      console.log('data :>> ', data);
+      setResults(data);
+      setLoading(false);
+    });
+  }
 
   return (
     <div className="landing-page">
       <header className="landing-page-header">
-    
           <h1>Faites de vos projets une réalité...</h1>
-          <div className="landing-page-input">
-            <div className="icon-container">
-            <i class="fa-solid fa-hammer"></i>
+            <div className="landing-page-input">
+              <div className="icon-container">
+              <i className="fa-solid fa-hammer"></i>
             </div>
           
             <select className='selector' name="" id="">
@@ -58,13 +51,13 @@ function LandingPage() {
             </select>
           </div>
           <div className="landing-page-research">
-            <p onClick={search}>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
+            <p onClick={handleCLick}>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
           </div>
       </header>
 
       {
-        result != 'Chargement' && show == true && (
-          <ResultComponent results={result} />
+        !loading && results.length != 0 && (
+          <ResultComponent results={results} />
         )
 }
         

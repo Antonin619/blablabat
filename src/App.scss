@@ -50,8 +50,21 @@ p {
   min-height: 100vh;
 
   .app-content {
-    scroll-behavior: smooth;
-    height: 82vh;
-    overflow: auto;
+    padding-top: 10vh;
+  }
+}
+
+
+.back-button {
+  background-color: var(--bbb-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-size: var(--bbb-text);
+  font-weight: 600;
+  margin-right: auto;
+  
+  i {
+    padding-right: 1rem;
   }
 }

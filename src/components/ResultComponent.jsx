@@ -1,6 +1,7 @@
-import '../style/header.scss'
-function ResultComponent() {
+import React from 'react';
+import '../style/header.scss';
 
+const ResultComponent = (props) => {
     const { results } = props;
 
     const getJob = (id) => {
@@ -57,7 +58,7 @@ function ResultComponent() {
             <h1>Resultats</h1>
             <div className="result-component-container">
                 {
-                    results.map((result) => {
+                    results.data.map((result) => {
                         return (
                             <div className="result-component-card">
                                 <div className="result-component-card-header">

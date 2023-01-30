@@ -6,6 +6,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import RegisterPage from './pages/RegisterPage';
 import InformationsPage from './pages/InformationsPage';
+import NotFound from './pages/404';
+import Legal from './pages/Legal';
+import InscriptionClient from './pages/InscriptionClient';
+import InscriptionPro from './pages/InscriptionPro';
+
+import LoginForm from './components/LoginForm';
 
 function App() {
   return (
@@ -21,6 +27,12 @@ function App() {
       <Route path="/informations" element={<InformationsPage/>}/>
       
       
+      <Route path="*" element={<NotFound/>}/>
+      <Route path="/cgv-mentions-legales" element={<Legal/>}/>
+      <Route path="/inscription-client" element={<InscriptionClient/>}/>
+      <Route path="/inscription-pro" element={<InscriptionPro/>}/>
+
+      <Route path="/login" element={<LoginForm/>}/>
     </Routes>
     </div>
     <Footer/>
