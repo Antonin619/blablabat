@@ -8,8 +8,8 @@ import NotFound from './pages/404';
 import Legal from './pages/Legal';
 import InscriptionClient from './pages/InscriptionClient';
 import InscriptionPro from './pages/InscriptionPro';
-
 import LoginForm from './components/LoginForm';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -24,6 +24,8 @@ function App() {
       <Route path="/cgv-mentions-legales" element={<Legal/>}/>
       <Route path="/inscription-client" element={<InscriptionClient/>}/>
       <Route path="/inscription-pro" element={<InscriptionPro/>}/>
+      <Route path="/profil" element={<ProfilePage/>}/>
+
 
       <Route path="/login" element={<LoginForm/>}/>
     </Routes>
