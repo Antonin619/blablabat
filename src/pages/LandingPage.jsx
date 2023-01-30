@@ -4,6 +4,8 @@ import illu1 from '../assets/images/illu-1.jpg'
 import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function LandingPage() {
 
@@ -14,7 +16,6 @@ function LandingPage() {
   return (
     <div className="landing-page">
       <header className="landing-page-header">
-    
           <h1>Faites de vos projets une réalité...</h1>
             <div className="landing-page-input">
               <div className="icon-container">

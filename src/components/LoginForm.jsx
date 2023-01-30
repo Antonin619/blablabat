@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import '../style/login.scss'
+
 
 const LoginForm = props => {
 
@@ -63,13 +65,17 @@ const LoginForm = props => {
     }*/}
          
     return(<> <div>
-        <div>
+        <div className='login'>
+        <Link to="/"> <button className='back-button' type="button"><i className='fa-solid fa-arrow-left'></i>Retour</button></Link>
+
+            <h1>Connexion</h1>
+            <div className="sign-in-content">
             <form onSubmit={handleSubmit}>
-                <div>
+                
                     <label
                         htmlFor="username"
                     >
-                        Email
+                        Email :
                     </label>
                     <input
                         type="email"
@@ -80,13 +86,10 @@ const LoginForm = props => {
                         onChange={handleFormChange}
                         disabled={disabled}
                     />
-                </div>
-
-                <div >
                     <label
                         htmlFor="password"
                     >
-                        Mot de passe
+                        Mot de passe :
                     </label>
                     <input
                         type="password"
@@ -97,15 +100,15 @@ const LoginForm = props => {
                         onChange={handleFormChange}
                         disabled={disabled}
                     />
-                </div>
-                <div>
-                    <input type="submit"
+                
+                    <button type="submit"
+                    className='submit-button'
                         disabled={disabled}
-                        value="Connexion"
+    
                         onSubmit={handleSubmit}
-                    />
-                </div>
+                    >Se connecter</button>
             </form>
+            </div>
         </div>
     </div></>)
 }

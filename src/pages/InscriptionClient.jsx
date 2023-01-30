@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../App.scss';
 import '../style/sign-in.scss'
+
 
 function InscriptionClient() {
   useEffect(() => {
@@ -8,6 +10,8 @@ function InscriptionClient() {
   }, [])
   return (
     <div className="sign-in">
+      <Link to="/"> <button className='back-button' type="button"><i className='fa-solid fa-arrow-left'></i>Retour</button></Link>
+
         <h1>Inscription</h1>
         <div className="sign-in-content">
         <form action="">
