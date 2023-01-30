@@ -1,39 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+  --bbb-primary: #F27438;
+  --bbb-secondary: white;
+  --bbb-black: black;
+  --bbb-title: 'Anton', sans-serif;
+  --bbb-text:'';
+  --bbb-font-xs: 12px;
+  --bbb-font-s: 14px;
+  --bbb-font-med: 16px;
+  --bbb-font-l: 24px;
+  --bbb-font-xl: 32px;
+  --bbb-font-2xl: 48px;
+}
+
+h1,h2,h3 {
+  font-family: var(--bbb-title);
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: rgb(255, 255, 255);
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

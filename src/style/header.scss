@@ -1,0 +1,18 @@
+.header {
+    padding: 1rem;
+    background-color: var(--bbb-primary);
+    display: flex;
+    justify-content: space-between;
+    text-align: center;   
+    align-items: center;
+
+    .header-leftside {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .header-rightside {
+        font-size: var(--bbb-font-l);
+        padding-right: 0.5rem;
+    }
+}
