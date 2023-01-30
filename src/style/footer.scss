@@ -13,6 +13,7 @@
         gap: 0.5rem;
         align-items: center;
         padding: 1rem;
+        padding-bottom: 0;
     }
 
     .footer-content {
@@ -21,7 +22,26 @@
         justify-content: center;
         align-items: start;
         padding: 1rem;
+
+        h4 {
+            font-size: var(--bbb-font-l);
+            margin: 2rem 0rem 0.5rem 0rem;
+        }
         
-        
+        a {
+            p {
+                margin: 0;
+            }
+        }
+
+        button {
+            background-color: black;
+            border-radius: 0.5rem;
+            color: var(--bbb-secondary);
+            font-family: var(--bbb-text);
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            font-size: var(--bbb-font-med);
+        }
     }
 }

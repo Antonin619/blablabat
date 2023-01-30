@@ -14,10 +14,13 @@ function Footer() {
               <h4>Nos solutions</h4>
               <Link to={'/'}><p>Clients</p></Link>
               <Link to={'/'}><p>Professionnels</p></Link>
-              <h4>Nos solutions</h4>
+              <h4>A propos</h4>
               <Link to={'/'}><p>Qui sommes-nous ?</p></Link>
               <Link to={'/'}><p>Comment ça marche ?</p></Link>
               <Link to={'/'}><p>CGV et Mentions légales</p></Link>
+              <h4>Nous contacter</h4>
+              <p>06.55.60.79.90</p>
+              <button className='contact-button'>Nous contacter en ligne</button>
             </div>
       </footer>
     );
