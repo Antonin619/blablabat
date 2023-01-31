@@ -15,6 +15,7 @@ import AuthContextProvider, { AuthContext } from './contexts/auth.context';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import { useContext } from 'react';
 import Loader from './components/Loader';
+import ProjectsPage from './pages/ProjectsPage';
 
 function AppWrapper() {
   return (
@@ -63,11 +64,13 @@ function App() {
           <>
             <Route path="/panel" element={<Panel />} />
             <Route path="/informations" element={<InformationsPage />} />
+            <Route path="/projets" element={<ProjectsPage />} />
           </>
         ) : (
           <>
             <Route path="/panel" element={<Navigate to="/login" />} />
             <Route path="/informations" element={<Navigate to="/login" />} />
+            <Route path="/projets" element={<Navigate to="/login" />} />
           </>
         )
       }
