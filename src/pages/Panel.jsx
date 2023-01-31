@@ -4,6 +4,10 @@ import { ArtisansService } from '../services/artisan.service';
 import '../style/panel.scss'
 import { AuthContext } from '../contexts/auth.context';
 import { Link, useNavigate } from 'react-router-dom';
+import devis from "../assets/images/wallet.svg"
+import messages from "../assets/images/messages.svg"  
+import projets from "../assets/images/projets.svg"
+import archive from "../assets/images/archive.svg"
 
 function Panel() {
 
@@ -22,21 +26,31 @@ function Panel() {
 <section className="panel-section">
   <div className="panel-cards">
   <div className="panel-card">
-      <Link to="/devis">
+    <img src={devis} alt="illustration devis" />
+    <div className="card-label"><Link to="/devis">
         <h2>Mes devis</h2>
-      </Link>
+      </Link></div>
     </div>
     <div className="panel-card">
-    <Link to="/messagerie">
+    <img src={messages} alt="illustration devis" />
+    <div className="card-label"><Link to="/messagerie">
       <h2>Messagerie</h2>
-      </Link>
-    </div>
-    <div className="panel-card">
-      <Link to="/informations">
-      <h2>Modifier mes informations</h2>
-      </Link>
+      </Link></div>
     </div>
     
+    <div className="panel-card">
+    <img src={messages} alt="illustration devis" />
+    <div className="card-label"><Link to="/informations">
+      <h2>Modifier mes informations</h2>
+      </Link></div>
+    </div>
+    
+    <div className="panel-card">
+    <img src={archive} alt="illustration devis" />
+    <div className="card-label"><Link to="/informations">
+      <h2>Archives</h2>
+      </Link></div>
+    </div>
     <hr />
   </div>
 
@@ -49,9 +63,10 @@ function Panel() {
             <h1>Espace Artisan</h1>
             <div className="panel-cards">
             <div className="panel-card last">
-              <a href="/projets">
-              <h2>Mes projets</h2>
-              </a>
+              <img src={projets} alt="illustration devis" />
+              <div className="card-label"><Link to="/projets">
+                <h2>Mes projets</h2>
+              </Link></div>
             </div>
             </div>
             </>
