@@ -6,6 +6,20 @@ import '../style/login.scss'
 
 const LoginForm = (props) => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
+    const {
+        disabled,
+        onSubmit
+    } = props
+
+    const [formState, setFormState] = useState({
+        username: '',
+        password: ''    
+    })
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -31,6 +45,8 @@ const LoginForm = (props) => {
     useEffect(() => {
         console.log('isReady :>> ', isReady);
     }, [isReady])
+
+
          
     return(<> <div>
         <div className='login'>
@@ -70,7 +86,6 @@ const LoginForm = (props) => {
             </div>
         </div>
     </div></>)
+
 }
-
-export default LoginForm
-
+export default LoginForm;

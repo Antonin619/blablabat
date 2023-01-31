@@ -5,15 +5,7 @@ import '../style/panel.scss'
 import { AuthContext } from '../contexts/auth.context';
 
 function Panel() {
-  const { user } = useContext(AuthContext);
-
-  const [isArtisan, setIsArtisan] = useState(null);
-
-  useEffect(() => {
-    console.log('user :>> ', user);
-    setIsArtisan(user.role.name === 'craftsman');
-  }, []);
-
+  const { user, isReady } = useContext(AuthContext);
   return (
     <div className="Panel">
       <header className="Panel-header">
@@ -43,7 +35,7 @@ function Panel() {
 </section>
 
       {
-          isArtisan && (
+          user.role.name === "craftman" && (
             <>
             <h1>Espace Artisan</h1>
             <div className="Panel-Card">

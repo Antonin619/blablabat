@@ -3,8 +3,8 @@ import '../App.scss';
 import { ServicesService } from '../services/services.service';
 import { AuthContext } from '../contexts/auth.context';
 
-function Panel() {
-  const { user, token, setError } = useContext(AuthContext);
+function InformationsPage() {
+  const { user, token } = useContext(AuthContext);
   const [isLoaded, setIsLoaded] = useState(false);
   const [services, setServices] = useState(null);
 
@@ -17,7 +17,6 @@ function Panel() {
       })
       .catch((error) => {
         console.log('error :>> ', error);
-        setError(error);
         setIsLoaded(true);
       });
   }, []);
@@ -62,4 +61,4 @@ function Panel() {
   );
 }
 
-export default Panel;
+export default InformationsPage;

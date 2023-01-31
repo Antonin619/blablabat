@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../App.scss';
 import '../style/sign-in.scss'
 
@@ -8,9 +8,11 @@ function InscriptionClient() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  let history = useNavigate();
   return (
     <div className="sign-in">
-      <Link to="/"> <button className='back-button' type="button"><i className='fa-solid fa-arrow-left'></i>Retour</button></Link>
+      <Link to="/"> <button onClick={() => history(-1)} className='back-button' type="button"><i className='fa-solid fa-arrow-left'></i>Retour</button></Link>
 
         <h1>Inscription</h1>
         <div className="sign-in-content">

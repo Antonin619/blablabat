@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/header.scss';
+import '../style/result-component.scss';
 
 const ResultComponent = (props) => {
     const { results } = props;
@@ -55,15 +55,17 @@ const ResultComponent = (props) => {
         // créer une fonction qui parcoure tout les élements du tableau results
         // et qui les affiche dans une div
         <div className="result-component">
-            <h1>Resultats</h1>
+            <h2>Resultats</h2>
             <div className="result-component-container">
                 {
                     results.data.map((result) => {
                         return (
                             <div className="result-component-card">
                                 <div className="result-component-card-header">
-                                    <h2>{result.name}</h2>
-                                    <p>{result.email}</p>
+                                    <h3>{result.name}</h3>
+                                    <div className="email">
+                                        <p>{result.email}</p>
+                                    </div>
                                 </div>
                                 <div className="result-component-card-content">
                                     <p>{getJob(result.jobs[0])}</p>

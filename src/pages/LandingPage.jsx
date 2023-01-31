@@ -3,6 +3,7 @@ import '../style/landing_page.scss'
 import illu1 from '../assets/images/illu-1.jpg'
 import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
+import { useEffect } from 'react';
 import { useState } from 'react';
 import ResultComponent from '../components/ResultComponent';
 import { CraftmensService } from '../services/craftmens.service';
@@ -54,12 +55,13 @@ function LandingPage() {
             <p onClick={handleCLick}>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
           </div>
       </header>
-
+      <div className="result">
       {
         !loading && results.length != 0 && (
           <ResultComponent results={results} />
         )
-}
+} 
+</div>
         
 
 
