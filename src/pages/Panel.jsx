@@ -1,30 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import '../App.scss';
+import { ArtisansService } from '../services/artisan.service';
 import '../style/panel.scss'
+import { AuthContext } from '../contexts/auth.context';
 
 function Panel() {
+  const { user } = useContext(AuthContext);
 
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
-  const [artisan, setArtisan] = useState(false);
-  
-   const getArtisan = () => {
-     fetch('http://localhost:3000/api/artisan')
-     .then((response) => response.json())
-     .then((data) => {
-       setArtisan(data);
-     })
-     .catch((error) => {
-       setError(error);
-     });
-   }
+  const [isArtisan, setIsArtisan] = useState(null);
 
-   useEffect(() => {
-    getArtisan();
-  }, []);
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    console.log('user :>> ', user);
+    setIsArtisan(user.role.name === 'craftsman');
+  }, []);
 
   return (
     <div className="Panel">
@@ -55,7 +43,7 @@ function Panel() {
 </section>
 
       {
-          artisan && (
+          isArtisan && (
             <>
             <h1>Espace Artisan</h1>
             <div className="Panel-Card">

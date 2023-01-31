@@ -1,68 +1,40 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react';
+import { AuthContext } from '../contexts/auth.context';
+import { Link, Navigate, redirect } from 'react-router-dom'
 import '../style/login.scss'
 
 
-const LoginForm = props => {
+const LoginForm = (props) => {
 
-    const {
-        disabled,
-        onSubmit
-    } = props
-
-    const [formState, setFormState] = useState({
-        username: '',
-        password: ''    
-    })
-
-    const handleFormChange = e => {
-        setFormState({
-            ...formState,
-            [e.target.name]: e.target.value
-        })
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+  
+    const { login, isReady, isLoading, isAuthenticated } = useContext(AuthContext);
+  
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+      if (name === 'email') {
+        setEmail(value);
+      } else if (name === 'password') {
+        setPassword(value);
+      }
+    }
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log('email :>> ', email);
+      console.log('password :>> ', password);
+      login(email, password);
     }
 
-    const payload = {
-        "email" : formState.username,
-        "password" : formState.password
-    }
-    const handleSubmit = evt => {
-        evt.preventDefault()
-        //Appel à l'api de login
-        fetch('/auth/login',{
-            credentials: 'same-origin',
-            method : 'POST',
-            redirect : 'follow',
-            headers : {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body : JSON.stringify(payload)
-        })
-        .then((response) =>response.json())
-        .then((data)=>{
-            //On sauvegarde les token
-            sessionStorage.setItem('bearer', data.data.access_token)
-            sessionStorage.setItem('refreshToken', data.data.refresh_token)
-        })
-        //On sauvegarde des données utiles pour plus tard
-        sessionStorage.setItem('isAuthenticated', true)
-        sessionStorage.setItem('email', formState.username)
+    useEffect(() => {
+        console.log('isReady :>> ', isReady);
+    }, [isReady])
 
-        //utile pour récup les données de l'utilisateur connecté
-       /* if(sessionStorage.getItem('isAuthenticated')==true){
-            console.log('test')
-           //Appel à l'api pour avoir les infos de l'utilisateur connecté
-            fetch('/users/me',{
-            credentials: 'same-origin',
-            method : 'GET',
-            headers : {
-                Accept: 'application/json',
-            },
-        }).then(function(data){
-           sessionStorage.setItem()
-        }) 
-    }*/}
+    if (isReady) {
+        return <Navigate to='/panel' replace />
+    }
          
     return(<> <div>
         <div className='login'>
@@ -70,21 +42,18 @@ const LoginForm = props => {
 
             <h1>Connexion</h1>
             <div className="sign-in-content">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} onChange={handleChange}>
                 
                     <label
-                        htmlFor="username"
+                        htmlFor="email"
                     >
                         Email :
                     </label>
                     <input
                         type="email"
-                        id="username"
+                        id="email"
                         placeholder="Email"
-                        name="username"
-                        value={formState.username}
-                        onChange={handleFormChange}
-                        disabled={disabled}
+                        name="email"
                     />
                     <label
                         htmlFor="password"
@@ -96,16 +65,10 @@ const LoginForm = props => {
                         placeholder="Mot de passe"
                         name="password"
                         id="password"
-                        value={formState.password}
-                        onChange={handleFormChange}
-                        disabled={disabled}
                     />
                 
                     <button type="submit"
                     className='submit-button'
-                        disabled={disabled}
-    
-                        onSubmit={handleSubmit}
                     >Se connecter</button>
             </form>
             </div>
