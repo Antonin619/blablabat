@@ -30,7 +30,7 @@ function ProfilePage() {
         <hr />
         <div className="container">
             <div className="profile-infos">
-                <h3>{ user.first_name} { user.last_name }</h3>
+                <h3>{ user.first_name } { user.last_name }</h3>
                 <h4>{ user.title }</h4>
             </div>
 

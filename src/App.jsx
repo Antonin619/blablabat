@@ -20,6 +20,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import LogoutPage from './pages/LogoutPage';
 import Messagerie from './pages/Messagerie';
 import Archives from './pages/Archives';
+import Devis from './pages/DevisPage';
 
 function AppWrapper() {
   return (
@@ -62,7 +63,6 @@ function App() {
 
       <Route path="/inscription-client" element={<InscriptionClient/>}/>
       <Route path="/inscription-pro" element={<InscriptionPro/>}/>
-
       <Route path="/cgv-mentions-legales" element={<Legal/>}/>
 
       {
@@ -75,7 +75,7 @@ function App() {
             <Route path="/panel" element={<Panel />} />
             <Route path="/messagerie" element={<Messagerie />} />
             <Route path="/archives" element={<Archives />} />
-
+            <Route path="/devis" element={<Devis />} />
           </>
         ) : (
           <>
