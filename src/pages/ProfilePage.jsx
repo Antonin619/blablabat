@@ -27,6 +27,7 @@ function ProfilePage() {
       <div className="profile-page-content">
         <Link to="/"> <button onClick={() => history(-1)} className='back-button' type="button"><i className='fa-solid fa-arrow-left'></i>Retour</button></Link>
         <h1>Profil</h1>
+        <hr />
         <div className="container">
             <div className="profile-infos">
                 <h3>{ user.first_name} { user.last_name }</h3>

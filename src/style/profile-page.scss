@@ -13,11 +13,14 @@
             text-decoration: underline;
         }
 
-        
+        h1 {
+            margin-bottom: 0;
+        }
 
         .container {
             display: flex;
             justify-content: space-between;
+            margin-top: 2rem;
 
             h3 {
                 margin-top: 0;
