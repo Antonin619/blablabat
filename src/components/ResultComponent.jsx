@@ -68,11 +68,11 @@ const ResultComponent = (props) => {
                                     </div>
                                 </div>
                                 <div className="result-component-card-content">
-                                    <p>{getJob(result.jobs[0])}</p>
+                                    <p><i className="fa-solid fa-hammer"></i> {getJob(result.jobs[0])}</p>
                                 </div>
                                 <div className="result-component-card-footer">
-                                    <p>{result.phone_number}</p>
-                                    <p>{result.location}</p>
+                                    <p><i className="fa-solid fa-phone"></i> {result.phone_number}</p>
+                                    <p><i className="fa-solid fa-location-dot"></i> {result.location}</p>
                                 </div>
                             </div>
                         )

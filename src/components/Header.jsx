@@ -33,6 +33,7 @@ function Header() {
         <div className="header-rightside">
           
           <i className={isAuthenticated ? "hidden" : "fa-solid fa-bars"} onClick={toggleBurger}></i>
+          <Link to="/panel"><i className={isAuthenticated ? "fa-regular fa-rectangle-list panel-button" : "hidden"}></i></Link>
           <Link to="/profil"><i className={isAuthenticated ? "fa-regular fa-user" : "hidden"}></i></Link>
         </div>
         

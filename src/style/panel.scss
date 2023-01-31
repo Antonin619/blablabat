@@ -1,3 +1,32 @@
 .panel {
-    padding: 1rem;
+    padding: 2rem;
+
+    .panel-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .panel-card {
+            background-color: var(--bbb-primary);
+            border: 2px solid black;
+            border-radius: 0.8rem;
+            padding: 2rem 1rem;
+            
+            text-align: center;
+
+            a {
+                text-decoration: none;
+            }
+
+            h2 {
+                color: black;
+                margin: 0;
+                font-size: var(--bbb-font-l);
+            }
+        }
+    }
+}
+
+.last {
+    margin-bottom: 4rem;
 }

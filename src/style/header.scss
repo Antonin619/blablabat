@@ -20,6 +20,18 @@
     .header-rightside {
         font-size: var(--bbb-font-l);
         margin-right: 1.5rem;
+        
+        i {
+            color: black;
+        }
+
+        .panel-button {
+            margin-right: 1rem;
+            background-color: var(--bbb-primary);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            
+        }
     }
 }
 
