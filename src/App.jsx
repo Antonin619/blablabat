@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import LandingPage from './pages/LandingPage';
 import Panel from './pages/Panel';
 import './App.scss'
@@ -37,18 +37,40 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage/>}/>
       
-      <Route path="/login" element={<LoginForm/>}/>
-      <Route path="/register" element={<RegisterPage/>}/>
+      {
+        !isAuthenticated ? (
+          <>
+            <Route path="/login" element={<LoginForm/>}/>
+            <Route path="/register" element={<RegisterPage/>}/>
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={<Navigate to="/panel" />} />
+            <Route path="/register" element={<Navigate to="/panel" />} />
+          </>
+        )
+      }
 
       <Route path="/inscription-client" element={<InscriptionClient/>}/>
       <Route path="/inscription-pro" element={<InscriptionPro/>}/>
       <Route path="/profil" element={<AuthenticatedRoute component={ProfilePage}/>}/>
 
 
-      <Route path="/informations" element={<InformationsPage/>}/>
       <Route path="/cgv-mentions-legales" element={<Legal/>}/>
 
-      <Route path="/panel" element={<AuthenticatedRoute  component={Panel}/>}/>
+      {
+        isAuthenticated ? (
+          <>
+            <Route path="/panel" element={<Panel />} />
+            <Route path="/informations" element={<InformationsPage />} />
+          </>
+        ) : (
+          <>
+            <Route path="/panel" element={<Navigate to="/login" />} />
+            <Route path="/informations" element={<Navigate to="/login" />} />
+          </>
+        )
+      }
       
       <Route path="*" element={<NotFound/>}/>
     </Routes>

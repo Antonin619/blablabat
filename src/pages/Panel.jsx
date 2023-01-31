@@ -7,12 +7,8 @@ import { AuthContext } from '../contexts/auth.context';
 function Panel() {
   const { user } = useContext(AuthContext);
 
-  const [isArtisan, setIsArtisan] = useState(null);
 
-  useEffect(() => {
-    console.log('user :>> ', user);
-    setIsArtisan(user.role.name === 'craftsman');
-  }, []);
+
 
   return (
     <div className="Panel">
@@ -43,7 +39,7 @@ function Panel() {
 </section>
 
       {
-          isArtisan && (
+          user.role.name === "craftman" && (
             <>
             <h1>Espace Artisan</h1>
             <div className="Panel-Card">
