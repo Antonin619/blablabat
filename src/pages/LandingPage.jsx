@@ -24,6 +24,19 @@ function LandingPage() {
     });
   }
 
+  const getLocalisation = () => {
+    const select = document.getElementById('localisation');
+    console.log('localisation :>> ', select.value)
+    return select.value;
+  }
+
+  const getSelectedJob = () => {
+    const select = document.getElementById('job');
+    console.log('job :>> ', select.value)
+    return select.value;
+  }
+
+
   return (
     <div className="landing-page">
       <header className="landing-page-header">
@@ -33,22 +46,22 @@ function LandingPage() {
               <i className="fa-solid fa-hammer"></i>
             </div>
           
-            <select className='selector' name="" id="">
+            <select className='selector' name="" id="job">
               <option>De quoi avez vous besoin ?</option>
-              <option>Peinture</option>
-              <option>Maçonnerie</option>
-              <option>Plomberie</option>
+              <option value="9">Peintre</option>
+              <option value="18">Macon</option>
+              <option value="3">Plombier</option>
             </select>
           </div>
           <div className="landing-page-input">
           <div className="icon-container">
             <i className="fa-solid fa-location-dot"></i>
             </div>
-            <select className='selector' name="" id="">
+            <select className='selector' name="" id="localisation">
               <option>Code postal...</option>
-              <option>17000 (Charente-Maritime)</option>
-              <option>44000 (Loire-Atlantique)</option>
-              <option>33000 (Gironde)</option>
+              <option value="17000">17000 (Charente-Maritime)</option>
+              <option value="44000">44000 (Loire-Atlantique)</option>
+              <option value="33000">33000 (Gironde)</option>
             </select>
           </div>
           <div className="landing-page-research">
@@ -58,7 +71,7 @@ function LandingPage() {
       <div className="result">
       {
         !loading && results.length != 0 && (
-          <ResultComponent results={results} />
+          <ResultComponent results={results} localisation={getLocalisation()} job={getSelectedJob()} />
         )
 } 
 </div>
