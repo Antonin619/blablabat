@@ -1,47 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import '../App.scss';
+import { ServicesService } from '../services/services.service';
+import { AuthContext } from '../contexts/auth.context';
 
 function Panel() {
+  const { user, token, setError } = useContext(AuthContext);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [services, setServices] = useState(null);
 
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
-  const [artisan, setArtisan] = useState(true);
-  
-  const getUser = () => {
-    fetch('http://localhost:3000/api/user')
-    .then((response) => response.json())
-    .then((data) => {
-        setUser(data);
-    })
-    .catch((error) => {
+  useEffect(() => {
+    ServicesService.fetchServices(token.accessToken)
+      .then((response) => {
+        console.log('response :>> ', response);
+        setServices(response.data);
+        setIsLoaded(true);
+      })
+      .catch((error) => {
+        console.log('error :>> ', error);
         setError(error);
-    });
-    }
-
-
-   const getArtisan = () => {
-     fetch('http://localhost:3000/api/artisan')
-     .then((response) => response.json())
-     .then((data) => {
-       setArtisan(data);
-     })
-     .catch((error) => {
-       setError(error);
-     });
-   }
-
-   useEffect(() => {
-    getArtisan();
-    fetch('/items/services', {
-        credentials: 'same-origin',
-        method: 'GET',
-        headers: {
-            Accept: 'application/json',
-        },
-
-    })
-        .then(response => response.json())
-        .then(data => console.log(data));
+        setIsLoaded(true);
+      });
   }, []);
 
   return (
@@ -55,7 +33,7 @@ function Panel() {
     <div className="Informations-Cards">
         
         {
-          !artisan ? (<><div className="Informations-Card">
+          !isLoaded ? (<><div className="Informations-Card">
           <h2>Informations personnelles</h2>
           <p>Nom : </p>
           <p>Prénom : </p>

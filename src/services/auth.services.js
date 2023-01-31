@@ -49,5 +49,24 @@ export const AuthServices = {
                 reject(error)
             })
         })
+    },
+    refresh: async (refresh_token) => {
+        return new Promise(async (resolve, reject) => {
+            fetch('/auth/refresh', {
+                credentials: 'same-origin',
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    refresh_token: refresh_token,
+                }),
+            }).then(async (response) => {
+                resolve(await response.json())
+            }).catch((error) => {
+                reject(error)
+            })
+        })
     }
 }

@@ -31,10 +31,6 @@ const LoginForm = (props) => {
     useEffect(() => {
         console.log('isReady :>> ', isReady);
     }, [isReady])
-
-    if (isReady) {
-        return <Navigate to='/panel' replace />
-    }
          
     return(<> <div>
         <div className='login'>
