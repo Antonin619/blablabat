@@ -4,13 +4,25 @@ import illu1 from '../assets/images/illu-1.jpg'
 import illu2 from '../assets/images/illu-2.png'
 import illu3 from '../assets/images/illu-3.jpg'
 import { useEffect } from 'react';
-
+import { useState } from 'react';
+import ResultComponent from '../components/ResultComponent';
+import { CraftmensService } from '../services/craftmens.service';
 
 function LandingPage() {
+  const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  console.log('results :>> ', results);
+
+  const handleCLick = () => {
+    setLoading(true);
+    CraftmensService.fetchCraftsmen().then((data) => {
+      console.log('data :>> ', data);
+      setResults(data);
+      setLoading(false);
+    });
+  }
 
   return (
     <div className="landing-page">
@@ -40,9 +52,21 @@ function LandingPage() {
             </select>
           </div>
           <div className="landing-page-research">
-            <p>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
+            <p onClick={handleCLick}>Rechercher</p><i className="fa-solid fa-magnifying-glass"></i>
           </div>
       </header>
+      <div className="result">
+      {
+        !loading && results.length != 0 && (
+          <ResultComponent results={results} />
+        )
+} 
+</div>
+        
+
+
+
+
 
       <img src={illu1} alt="test" />
 
