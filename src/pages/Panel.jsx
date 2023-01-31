@@ -8,6 +8,7 @@ import devis from "../assets/images/wallet.svg"
 import messages from "../assets/images/messages.svg"  
 import projets from "../assets/images/projets.svg"
 import archive from "../assets/images/archive.svg"
+import pen from "../assets/images/pen.svg"
 
 function Panel() {
 
@@ -39,7 +40,7 @@ function Panel() {
     </div>
     
     <div className="panel-card">
-    <img src={messages} alt="illustration devis" />
+    <img src={pen} alt="illustration devis" />
     <div className="card-label"><Link to="/informations">
       <h2>Modifier mes informations</h2>
       </Link></div>
@@ -47,7 +48,7 @@ function Panel() {
     
     <div className="panel-card">
     <img src={archive} alt="illustration devis" />
-    <div className="card-label"><Link to="/informations">
+    <div className="card-label"><Link to="/archives">
       <h2>Archives</h2>
       </Link></div>
     </div>

@@ -1,0 +1,23 @@
+.informations {
+    padding: 2rem;
+
+    .modif-button {
+        background-color: black;
+        border-radius: 0.5rem;
+        color: var(--bbb-primary);
+        font-family: var(--bbb-text);
+        padding: 0.7rem 1.5rem;
+        font-weight: 600;
+        border: none;
+        font-size: var(--bbb-font-med);
+        display: flex;
+        gap: 12px;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4rem;
+    }
+
+    h3 {
+        font-family: var(--bbb-text);
+    }
+}

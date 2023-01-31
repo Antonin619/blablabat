@@ -19,6 +19,7 @@ import Loader from './components/Loader';
 import ProjectsPage from './pages/ProjectsPage';
 import LogoutPage from './pages/LogoutPage';
 import Messagerie from './pages/Messagerie';
+import Archives from './pages/Archives';
 
 function AppWrapper() {
   return (
@@ -73,6 +74,8 @@ function App() {
             <Route path="/projets" element={<ProjectsPage />} /> 
             <Route path="/panel" element={<Panel />} />
             <Route path="/messagerie" element={<Messagerie />} />
+            <Route path="/archives" element={<Archives />} />
+
           </>
         ) : (
           <>

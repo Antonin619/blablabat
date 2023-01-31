@@ -1,0 +1,52 @@
+.archives {
+    padding: 2rem;
+
+    h3 {
+        font-family: var(--bbb-text);
+        margin: 0;
+    }
+
+    .archives-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    
+        .archives-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: stretch;
+            box-shadow: 0px 1px 6px 4px rgba(160, 160, 160, 0.323);
+            border-radius: 0.8rem;
+            
+
+            .archives-card-header {
+                padding: 1rem;
+                align-self: stretch;
+            }
+
+            .archives-card-footer {
+                padding: 1rem;
+                display: flex;
+                justify-content: end;
+                color: black;
+                font-weight: 600;
+                border-bottom-left-radius: 0.8rem;
+                border-bottom-right-radius: 0.8rem;
+                
+            }
+
+            .success {
+                background-color: rgb(133, 255, 141);
+            }
+
+            .cancel {
+                background-color: rgb(255, 251, 141);
+            }
+
+            .fail {
+                background-color: rgb(255, 141, 141);
+            }
+        }
+    }
+}
