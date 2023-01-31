@@ -5,9 +5,9 @@ import '../style/panel.scss'
 import { AuthContext } from '../contexts/auth.context';
 
 function Panel() {
-  const { user } = useContext(AuthContext);
+  const  user  = useContext(AuthContext);
 
-
+  console.log('userfiejgdzdzdzddzdzdzreojg',user.role.name)
 
 
   return (
@@ -39,6 +39,7 @@ function Panel() {
 </section>
 
       {
+          
           user.role.name === "craftman" && (
             <>
             <h1>Espace Artisan</h1>
