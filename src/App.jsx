@@ -18,6 +18,7 @@ import { useContext } from 'react';
 import Loader from './components/Loader';
 import ProjectsPage from './pages/ProjectsPage';
 import LogoutPage from './pages/LogoutPage';
+import Devis from './pages/DevisPage';
 
 function AppWrapper() {
   return (
@@ -71,6 +72,7 @@ function App() {
             <Route path="/profil" element={<ProfilePage/>}/>
             <Route path="/projets" element={<ProjectsPage />} /> 
             <Route path="/panel" element={<Panel />} />
+            <Route path="/devis" element={<Devis />} />
           </>
         ) : (
           <>
