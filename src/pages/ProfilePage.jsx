@@ -29,16 +29,24 @@ function ProfilePage() {
         <h1>Profil</h1>
         <div className="container">
             <div className="profile-infos">
-                <h3>{ user.first_name}{ user.last_name }</h3>
-                <h4>Maçon</h4>
+                <h3>{ user.first_name} { user.last_name }</h3>
+                <h4>{ user.title }</h4>
             </div>
+
             <div className="profile-pic">
                 <img src={illu3} alt="profile-pic"/>
             </div>
         </div>
-        <h3>Entreprise</h3>
-        <h4 className="company">Roberto & Co</h4>
-        <p className='company-loc'>17000, La Rochelle</p>
+        { user.description && <div>
+            <h4 className='desc'>Description :</h4>
+            <p>{ user.description }</p>
+        </div>}
+        { user.role.name === "craftsman" && <div className="company-section">
+            <h3>Entreprise</h3>
+            <h4 className="company">Barack & Co</h4>
+            <p className='company-loc'>{ user.location }</p>
+        </div> }
+        <button className='logout-button' type="button">Déconnexion<i class="fa-solid fa-right-from-bracket"></i></button>
       </div>
     </div>
   );

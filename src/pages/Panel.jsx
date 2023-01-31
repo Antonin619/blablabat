@@ -5,11 +5,10 @@ import '../style/panel.scss'
 import { AuthContext } from '../contexts/auth.context';
 
 function Panel() {
-  const  user  = useContext(AuthContext);
-
-  console.log('userfiejgdzdzdzddzdzdzreojg',user.role.name)
 
 
+
+  const { user, isReady } = useContext(AuthContext);
   return (
     <div className="Panel">
       <header className="Panel-header">

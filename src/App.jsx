@@ -17,6 +17,7 @@ import AuthenticatedRoute from './components/AuthenticatedRoute';
 import { useContext } from 'react';
 import Loader from './components/Loader';
 import ProjectsPage from './pages/ProjectsPage';
+import LogoutPage from './pages/LogoutPage';
 
 function AppWrapper() {
   return (
@@ -27,10 +28,14 @@ function AppWrapper() {
 }
 
 function App() {
-  const { isAuthenticated, isReady } = useContext(AuthContext);
+  const { isAuthenticated, isReady, user, isLoading } = useContext(AuthContext);
 
   console.log('isAuthenticated [App.tsx] :>> ', isAuthenticated);
   console.log('isReady [App.tsx] :>> ', isReady);
+
+  if (isLoading || !isReady) {
+    return <Loader />;
+  }
 
   return (
     <div className='App'>
@@ -55,27 +60,26 @@ function App() {
 
       <Route path="/inscription-client" element={<InscriptionClient/>}/>
       <Route path="/inscription-pro" element={<InscriptionPro/>}/>
-      <Route path="/profil" element={<AuthenticatedRoute component={ProfilePage}/>}/>
-
 
       <Route path="/cgv-mentions-legales" element={<Legal/>}/>
 
       {
         isAuthenticated ? (
           <>
-            <Route path="/panel" element={<Panel />} />
+            <Route path="/logout" element={<LogoutPage />} />
             <Route path="/informations" element={<InformationsPage />} />
-            <Route path="/projets" element={<ProjectsPage />} />
+            <Route path="/profil" element={<ProfilePage/>}/>
+            <Route path="/projets" element={<ProjectsPage />} /> 
+            <Route path="/panel" element={<Panel />} />
           </>
         ) : (
           <>
-            <Route path="/panel" element={<Navigate to="/login" />} />
-            <Route path="/informations" element={<Navigate to="/login" />} />
-            <Route path="/projets" element={<Navigate to="/login" />} />
           </>
         )
       }
       
+
+
       <Route path="*" element={<NotFound/>}/>
     </Routes>
     </div>

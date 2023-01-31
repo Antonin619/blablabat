@@ -25,6 +25,7 @@ const AuthContextProvider = (props) => {
     const [userUid, setUserUid] = useState(undefined)
     const [checkingToken, setCheckingToken] = useState(false)
     const [refreshingToken, setRefreshingToken] = useState(false)
+    const [isLoggingOut, setIsLoggingOut] = useState(false)
     const [error, setError] = useState(undefined)
     const cookies = new Cookies();
 
@@ -32,8 +33,8 @@ const AuthContextProvider = (props) => {
     useEffect(() => {
         setCheckingToken(true)
         console.log(document.cookie);
-        const tokenCookie = cookies.get('token');
-        const userCookie = cookies.get('user');
+        const tokenCookie = JSON.parse(localStorage.getItem('token'));
+        const userCookie = JSON.parse(localStorage.getItem('user'));
         console.log("tokenCookie :>> ", tokenCookie);
         console.log("userCookie :>> ", userCookie);
 
@@ -59,22 +60,32 @@ const AuthContextProvider = (props) => {
         
         AuthServices.login(email, password)
             .then((response) => {
-                console.log(response);
                 setToken({
                     accessToken: response.data.access_token,
                     refreshToken: response.data.refresh_token,
                     expires: response.data.expires,
                 })
+                localStorage.setItem('token', JSON.stringify({
+                    accessToken: response.data.access_token,
+                    refreshToken: response.data.refresh_token,
+                    expires: response.data.expires,
+                }))
+
+                AuthServices.status(response.data.access_token)
+                .then((resp) => {
+                    setUserUid(resp.data.id)
+                })
+                .catch((error) => {
+                    setIsLoading(false)
+                })
             })
             .catch((error) => {
                 setIsLoading(false)
-                console.log(error)
-            }
-        )
+            })
     }
 
-    useEffect(() => {
-        if (!checkingToken && !refreshingToken) {
+    /*useEffect(() => {
+        if (!checkingToken && !refreshingToken && !isLoggingOut) {
             console.log("token :>> ", token);
             if (token) {
                 AuthServices.status(token.accessToken)
@@ -87,34 +98,30 @@ const AuthContextProvider = (props) => {
                 })
             }
         }
-    }, [token])
+    }, [token])*/
 
     useEffect(() => {
-        if (!checkingToken && !refreshingToken) {
+        if (!checkingToken && !refreshingToken && !isLoggingOut) {
             console.log("userUid :>> ", userUid);
             if (userUid) {
                 ClientService.fetchClientById(userUid, token.accessToken)
                 .then((response) => {
-                    setUser(response.data)
                     setIsAuthenticated(true)
-                    ClientService.fetchClientRolesById(response.data.role, token.accessToken)
-                    .then((response) => {
-                        setUser({ ...response.data, role: response.data })
+                    console.log("response.data :>> ", response.data);
 
+                    ClientService.fetchClientRolesById(response.data.role, token.accessToken)
+                    .then((r) => {
+                        setUser({ ...response.data, role: r.data })
+                        localStorage.setItem('user', JSON.stringify({ ...response.data, role: r.data }))
                         setIsLoading(false)
                         setIsReady(true)
-                        
-                        cookies.set('user', user, { path: '/', expires: new Date(Date.now() + 900000) });
-                        cookies.set('token', token, { path: '/', expires: new Date(Date.now() + 900000) });
                     })
                     .catch((error) => {
                         setIsLoading(false)
-                        console.log(error)
                     })
                 })
                 .catch((error) => {
                     setIsLoading(false)
-                    console.log(error)
                 })
             }
         }
@@ -151,7 +158,13 @@ const AuthContextProvider = (props) => {
     }, [error])*/
 
     const logout = () => {
+        setIsLoggingOut(true)
         setIsAuthenticated(false)
+        setToken(undefined)
+        setUser(undefined)
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        setIsLoggingOut(false)
     }
 
     return (
