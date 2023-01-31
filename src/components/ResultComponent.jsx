@@ -1,8 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../style/result-component.scss';
 
 const ResultComponent = (props) => {
-    const { results } = props;
+    // récupérer les props "results", "localisation" et "job"
+    const { results, localisation, job } = props;
+
+    // créer un props "filteredResults" qui contient les résultats filtrés
+    const [filteredResults, setFilteredResults] = useState([]);
+
+
+    const getResultsByFilters = (localisation, job) => {
+        // créer une variable qui contient les résultats filtrés
+        console.log("Filtres: Location: " + localisation + " Job: " + job)
+        console.log(results.data)
+        let filteredResults = [];
+        // créer une boucle qui parcours tout les résultats
+        for (let i = 0; i < results.data.length; i++) {
+            // créer une variable qui contient le résultat courant
+            const result = results.data[i];
+            console.log("Objet courant: " + result + " " + result.jobs[0] + "")
+            // créer une variable qui contient la localisation du résultat courant
+            const resultLocalisation = result.location;
+            console.log("Objet : " + resultLocalisation)
+            // créer une variable qui contient le métier du résultat courant
+            const resultJob = result.jobs[0];
+            // créer une condition qui vérifie si la localisation du résultat courant
+            // est égale à la localisation passée en paramètre
+            // et si le métier du résultat courant est égale au métier passé en paramètre
+            if (resultLocalisation == localisation) {
+                // si la condition est vérifiée, ajouter le résultat courant à la variable
+                // qui contient les résultats filtrés
+                filteredResults.push(result);
+            }
+        }
+        // retourner les résultats filtrés
+        console.log(filteredResults)
+        return filteredResults;
+    }
+
+
+    // créer un useEffect qui s'active qu'une seule fois
+
+    useEffect(() => {
+        // créer une fonction qui filtre les résultats en fonction de la localisation et du métier
+        // et qui les stocke dans une variable
+        setFilteredResults(getResultsByFilters(localisation, job));
+        
+    }, []);
+
+
+
 
     const getJob = (id) => {
         switch (id) {
@@ -58,7 +105,7 @@ const ResultComponent = (props) => {
             <h2>Resultats</h2>
             <div className="result-component-container">
                 {
-                    results.data.map((result) => {
+                    filteredResults.map((result) => {
                         return (
                             <div className="result-component-card">
                                 <div className="result-component-card-header">
