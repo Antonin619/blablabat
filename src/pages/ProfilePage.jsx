@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.scss';
 import '../style/profile-page.scss'
 import illu3 from '../assets/images/illu-3.jpg'
+import { AuthContext } from '../contexts/auth.context';
 
 function ProfilePage() {
 
@@ -11,7 +12,16 @@ function ProfilePage() {
   }, [])
   let history = useNavigate();
 
-  return (
+  const {user,isAuthenticated} = useContext(AuthContext);
+
+  console.log("uuuserrrr", user)
+  if (!isAuthenticated) {
+    <div className="profile-page">
+
+        Loading...
+    </div>
+  }
+  else { return (
     <div className="profile-page">
         
       <div className="profile-page-content">
@@ -19,7 +29,7 @@ function ProfilePage() {
         <h1>Profil</h1>
         <div className="container">
             <div className="profile-infos">
-                <h3>Robert Simpson</h3>
+                <h3>{ user.first_name}{ user.last_name }</h3>
                 <h4>Maçon</h4>
             </div>
             <div className="profile-pic">
@@ -32,6 +42,6 @@ function ProfilePage() {
       </div>
     </div>
   );
-}
+}}
 
 export default ProfilePage;

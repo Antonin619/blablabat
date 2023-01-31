@@ -12,29 +12,45 @@ import InscriptionClient from './pages/InscriptionClient';
 import InscriptionPro from './pages/InscriptionPro';
 import LoginForm from './components/LoginForm';
 import ProfilePage from './pages/ProfilePage';
+import AuthContextProvider, { AuthContext } from './contexts/auth.context';
+import AuthenticatedRoute from './components/AuthenticatedRoute';
+import { useContext } from 'react';
+
+function AppWrapper() {
+  return (
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  );
+}
 
 function App() {
+  const { isAuthenticated, isReady } = useContext(AuthContext);
+
+  console.log('isAuthenticated [App.tsx] :>> ', isAuthenticated);
+  console.log('isReady [App.tsx] :>> ', isReady);
+
   return (
     <div className='App'>
     <Header/>
     <div className="app-content">
     <Routes>
-      
       <Route path="/" element={<LandingPage/>}/>
-      <Route path="/panel" element={<Panel/>}/>
+      
+      <Route path="/login" element={<LoginForm/>}/>
       <Route path="/register" element={<RegisterPage/>}/>
-      <Route path="/panel" element={<Panel/>}/>
-      <Route path="/informations" element={<InformationsPage/>}/>
-      
-      
-      <Route path="*" element={<NotFound/>}/>
-      <Route path="/cgv-mentions-legales" element={<Legal/>}/>
+
       <Route path="/inscription-client" element={<InscriptionClient/>}/>
       <Route path="/inscription-pro" element={<InscriptionPro/>}/>
-      <Route path="/profil" element={<ProfilePage/>}/>
+      <Route path="/profil" element={<AuthenticatedRoute component={ProfilePage}/>}/>
 
 
-      <Route path="/login" element={<LoginForm/>}/>
+      <Route path="/informations" element={<InformationsPage/>}/>
+      <Route path="/cgv-mentions-legales" element={<Legal/>}/>
+
+      <Route path="/panel" element={<AuthenticatedRoute  component={Panel}/>}/>
+      
+      <Route path="*" element={<NotFound/>}/>
     </Routes>
     </div>
     <Footer/>
@@ -42,4 +58,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppWrapper;

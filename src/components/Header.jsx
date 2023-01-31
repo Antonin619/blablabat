@@ -1,14 +1,19 @@
 import '../style/header.scss'
 import logo from '../assets/images/logo.svg'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/auth.context';
 
 function Header() {
 
   const [isBurgerMenuToggled, setIsBurgerMenuToggled] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const {user,isAuthenticated} = useContext(AuthContext);
+
+  console.log("user",user)
 
   function toggleBurger() {
     setIsBurgerMenuToggled(true)
@@ -26,8 +31,9 @@ function Header() {
         </div>
         
         <div className="header-rightside">
-          <i className={isLoggedIn ? "hidden" : "fa-solid fa-bars"} onClick={toggleBurger}></i>
-          <i className={isLoggedIn ? "fa-regular fa-user" : "hidden"}></i>
+          
+          <i className={isAuthenticated ? "hidden" : "fa-solid fa-bars"} onClick={toggleBurger}></i>
+          <Link to="/profil"><i className={isAuthenticated ? "fa-regular fa-user" : "hidden"}></i></Link>
         </div>
         
         <BurgerMenu isEnabled={isBurgerMenuToggled} onClose={() => setIsBurgerMenuToggled(false)}/>

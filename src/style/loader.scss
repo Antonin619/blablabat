@@ -1,0 +1,18 @@
+.loader {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .loader__spinner {
+        width: 100px;
+        height: 100px;
+        border: 10px solid #f3f3f3;
+        border-top: 10px solid #eaee1e;
+        border-radius: 50%;
+        animation: spin 2s linear infinite;
+    }
+}
